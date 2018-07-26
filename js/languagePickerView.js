@@ -1,7 +1,7 @@
 define([
     'core/js/adapt',
-    './languagePickerNavigationView'
-], function(Adapt, NavigationView) {
+    './accessibilityView'
+], function(Adapt, accessibilityView) {
     
     var LanguagePickerView = Backbone.View.extend({
         
@@ -41,14 +41,16 @@ define([
         },
 
         initializeAccessibility: function() {
-            this.navigationView = new NavigationView({model:this.model});
+            this.accessibilityView = new accessibilityView({
+                model:this.model
+            });
             
             // we need to re-render if accessibility gets switched on
-            this.listenTo(Adapt, 'accessibility:toggle', this.render);
+            this.listenTo(this.accessibilityView, 'accessibility:toggle', this.render);
         },
 
         destroyAccessibility: function() {
-            this.navigationView.remove();
+            this.accessibilityView.remove();
         },
 
         remove: function() {
