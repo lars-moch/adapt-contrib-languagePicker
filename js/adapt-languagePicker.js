@@ -44,7 +44,7 @@ define([
 
         if (storedLanguage)
         {
-            if (this.getLanguageDetails(storedLanguage))
+            if (languagePickerModel.getLanguageDetails(storedLanguage))
             {
                 languagePickerModel.setLanguage(storedLanguage);
             }
