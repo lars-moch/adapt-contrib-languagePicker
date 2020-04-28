@@ -33,7 +33,7 @@ define([
         },
         
         updateLanguageTracking: function (language) {
-            if (ScormWrapper && ScormWrapper.setPassed && language)
+            if (ScormWrapper && ScormWrapper.getInteractionIndex && language)
             {
                 ScormWrapper.recordInteraction('course_language', language, true, null, 'other', true);
             }
